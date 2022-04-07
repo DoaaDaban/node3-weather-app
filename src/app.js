@@ -3,6 +3,8 @@ const express = require("express");
 const hbs = require("hbs");
 
 const app = express();
+const port= process.env.PORT || 3000;
+
 const publicDirectoryPath = path.join(__dirname, "../public");
 const viewsPath= path.join(__dirname, "../templates/views");
 const partialsPath = path.join(__dirname, "../templates/partials")
@@ -19,14 +21,14 @@ app.use(express.static(publicDirectoryPath));
 app.get("/", (req, res) => {
   res.render("index", {
     title: "weather",
-    name: "duaa",
+    name: "Duaa Daban",
   });
 });
 
 app.get("/about", (req, res) => {
   res.render("about", {
     title: "About Me",
-    name: "Duaa",
+    name: "Duaa Daban",
   });
 });
 
@@ -34,7 +36,7 @@ app.get("/help", (req, res) => {
   res.render("help", {
    helpText: "This is helpful text",
    title: "Help",
-   name:'duaa'
+   name:'Duaa Daban'
   });
 });
 
@@ -75,7 +77,7 @@ app.get("/product", (req, res) => {
 app.get("/help/*", (req, res) => {
     res.render('404',{
         title: "404",
-        name: 'duaa',
+        name: 'Duaa Daban',
         errorMsg:"help article not found"
     })
 })
@@ -83,12 +85,12 @@ app.get("/help/*", (req, res) => {
 app.get("/*", (req, res) => {
     res.render('404', {
         title: "404",
-        name: 'duaa',
+        name: 'Duaa Daban',
         errorMsg: 'page not found'
     })
 })
 
-app.listen(8000, () => {
-  console.log("listening on port 8000");
+app.listen(port, () => {
+  console.log("listening on port" + port);
 });
 

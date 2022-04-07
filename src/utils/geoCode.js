@@ -16,8 +16,6 @@ const geocoding =(address, callback) => {
             callback(undefined, {latitude, longitude, location}) 
         }
     })
-
-
 }
 
 module.exports = geocoding
